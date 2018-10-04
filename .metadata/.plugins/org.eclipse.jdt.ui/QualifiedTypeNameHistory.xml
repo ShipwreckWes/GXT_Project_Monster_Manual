@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.sencha.gxt.widget.core.client.grid.ColumnConfig"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.widget.core.client.grid.ColumnModel"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.data.shared.ListStore"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.widget.core.client.grid.Grid"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.state.client.GridStateHandler"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.widget.core.client.form.SimpleComboBox"/>
+<fullyQualifiedTypeName name="com.sencha.gxt.cell.core.client.form.ComboBoxCell.TriggerAction"/>
+<fullyQualifiedTypeName name="com.google.gwt.event.logical.shared.SelectionHandler"/>
+<fullyQualifiedTypeName name="com.google.gwt.user.client.ui.Widget"/>
+</qualifiedTypeNameHistroy>

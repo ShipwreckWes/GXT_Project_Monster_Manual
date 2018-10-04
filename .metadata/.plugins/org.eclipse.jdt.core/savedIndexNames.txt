@@ -1,0 +1,25 @@
+INDEX VERSION 1.131+/Users/Westie/Desktop/GXT_Project_Monster_Manual/.metadata/.plugins/org.eclipse.jdt.core
+2763200912.index
+1044104405.index
+527849843.index
+1498646166.index
+3381136840.index
+2451512026.index
+2932191785.index
+1931402068.index
+2465022724.index
+624708564.index
+1271342938.index
+3227702110.index
+3753864603.index
+3358580009.index
+2587313582.index
+2117113611.index
+2979435446.index
+3157663476.index
+3220140266.index
+3373662787.index
+204893112.index
+995153890.index
+576073405.index
+616739193.index

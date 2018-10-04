@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.github.sdbg.debug.core.chromeLaunchConfig">
+<stringAttribute key="applicationName" value="/Monster_Manual_GXT_Project"/>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/Monster_Manual_GXT_Project"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="4"/>
+</listAttribute>
+<stringAttribute key="projectName" value="Monster_Manual_GXT_Project"/>
+<stringAttribute key="url" value="http://127.0.0.1:8888/Monster_Manual_GXT_Project.html"/>
+</launchConfiguration>
