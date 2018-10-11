@@ -13,7 +13,7 @@ the original D&amp;D 5th edition Monster Manual
 
 ## Demo
 
-* [Grids Demo](https://examples.sencha.com/gxt/)
+* [GXT Demo](https://examples.sencha.com/gxt/)
 
 ## Debug
 1. Run GWT Debugger with Jetty
