@@ -1,10 +1,10 @@
 # GXT_Project_Monster_Manual
 GXT Project that makes a sortable grid of the D&amp;D 5th Edition Monster Manual
 
-Currently the project outputs a blank screen instead of a responsive UI.
-Trying to create a working fix for this.
+The project outputs  a grid containing the names and stats of all the monsters in 
+the original D&amp;D 5th edition Monster Manual
 
-<img src='GXT_Project_Monster_Manual_Screen_Shot.png' width='400px'/>
+<img src='GXT_Project_Monster_Manual_Screen_Shot.png' width='800px'/>
 
 ## GXT 
 
