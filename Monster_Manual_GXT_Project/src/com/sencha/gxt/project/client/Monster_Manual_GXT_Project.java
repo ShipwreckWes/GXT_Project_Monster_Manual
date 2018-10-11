@@ -1,21 +1,15 @@
 package com.sencha.gxt.project.client;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
-import com.google.gwt.cell.client.AbstractCell;
-import com.google.gwt.cell.client.DateCell;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.event.logical.shared.ValueChangeEvent;
 import com.google.gwt.event.logical.shared.ValueChangeHandler;
-import com.google.gwt.i18n.client.DateTimeFormat;
-import com.google.gwt.i18n.client.NumberFormat;
-import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.Widget;
 import com.sencha.gxt.cell.core.client.form.ComboBoxCell.TriggerAction;
 import com.sencha.gxt.core.client.GXT;
@@ -24,16 +18,13 @@ import com.sencha.gxt.data.shared.StringLabelProvider;
 import com.sencha.gxt.project.client.MonsterData;
 import com.sencha.gxt.project.client.Monsters;
 import com.sencha.gxt.project.client.MonsterProperties;
-import com.sencha.gxt.project.client.ExampleContainer;
-//import com.sencha.gxt.explorer.client.app.ui.ExampleContainer;
-//import com.sencha.gxt.explorer.client.model.Example.Detail;
 import com.sencha.gxt.state.client.CookieProvider;
 import com.sencha.gxt.state.client.GridStateHandler;
 import com.sencha.gxt.state.client.StateManager;
 import com.sencha.gxt.widget.core.client.ContentPanel;
-import com.sencha.gxt.widget.core.client.container.SimpleContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
 import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.container.Viewport;
 import com.sencha.gxt.widget.core.client.form.SimpleComboBox;
 import com.sencha.gxt.widget.core.client.grid.CellSelectionModel;
 import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
@@ -50,8 +41,8 @@ import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
  */
 public class Monster_Manual_GXT_Project implements IsWidget, EntryPoint {
 
-	protected static final int MAX_HEIGHT = 1000;
-	protected static final int MAX_WIDTH = 1200;
+	protected static final int MAX_HEIGHT = 600;
+	protected static final int MAX_WIDTH = 800;
 	protected static final int MIN_HEIGHT = 320;
 	protected static final int MIN_WIDTH = 480;
 
@@ -63,41 +54,41 @@ public class Monster_Manual_GXT_Project implements IsWidget, EntryPoint {
 	public Widget asWidget() {
 		if (panel == null) {
 			ColumnConfig<Monsters, String> name1Col = new ColumnConfig<Monsters, String>(props.name1(), 50, "Name");
-			ColumnConfig<Monsters, String> challengeRatingCol = new ColumnConfig<Monsters, String>(
-					props.challengeRating(), 50, "CR Rating");
-			ColumnConfig<Monsters, String> challengeXPCol = new ColumnConfig<Monsters, String>(props.challengeXP(), 50,
+			ColumnConfig<Monsters, Integer> challengeRatingCol = new ColumnConfig<Monsters, Integer>(props.challengeRating(), 50, 
+					"CR Rating");
+			ColumnConfig<Monsters, Integer> challengeXPCol = new ColumnConfig<Monsters, Integer>(props.challengeXP(), 50,
 					"Total XP");
 			ColumnConfig<Monsters, String> armorTypeCol = new ColumnConfig<Monsters, String>(props.acType(), 50,
 					"Armor Type");
-			ColumnConfig<Monsters, String> armorClassCol = new ColumnConfig<Monsters, String>(props.armorClass(), 50,
+			ColumnConfig<Monsters, Integer> armorClassCol = new ColumnConfig<Monsters, Integer>(props.armorClass(), 50,
 					"Armor Class");
-			ColumnConfig<Monsters, String> strScoreCol = new ColumnConfig<Monsters, String>(props.strScore(), 50,
+			ColumnConfig<Monsters, Integer> strScoreCol = new ColumnConfig<Monsters, Integer>(props.strScore(), 50,
 					"Strength");
-			ColumnConfig<Monsters, String> strModCol = new ColumnConfig<Monsters, String>(props.strMod(), 50,
+			ColumnConfig<Monsters, Integer> strModCol = new ColumnConfig<Monsters, Integer>(props.strMod(), 50,
 					"Str Modifier");
-			ColumnConfig<Monsters, String> dexScoreCol = new ColumnConfig<Monsters, String>(props.dexScore(), 50,
+			ColumnConfig<Monsters, Integer> dexScoreCol = new ColumnConfig<Monsters, Integer>(props.dexScore(), 50,
 					"Dexterity");
-			ColumnConfig<Monsters, String> dexModCol = new ColumnConfig<Monsters, String>(props.dexMod(), 50,
+			ColumnConfig<Monsters, Integer> dexModCol = new ColumnConfig<Monsters, Integer>(props.dexMod(), 50,
 					"Dex Modifier");
-			ColumnConfig<Monsters, String> conScoreCol = new ColumnConfig<Monsters, String>(props.conScore(), 50,
+			ColumnConfig<Monsters, Integer> conScoreCol = new ColumnConfig<Monsters, Integer>(props.conScore(), 50,
 					"Constitution");
-			ColumnConfig<Monsters, String> conModCol = new ColumnConfig<Monsters, String>(props.conMod(), 50,
+			ColumnConfig<Monsters, Integer> conModCol = new ColumnConfig<Monsters, Integer>(props.conMod(), 50,
 					"Con Modifier");
-			ColumnConfig<Monsters, String> intScoreCol = new ColumnConfig<Monsters, String>(props.intScore(), 50,
+			ColumnConfig<Monsters, Integer> intScoreCol = new ColumnConfig<Monsters, Integer>(props.intScore(), 50,
 					"Intelligence");
-			ColumnConfig<Monsters, String> intModCol = new ColumnConfig<Monsters, String>(props.intMod(), 50,
+			ColumnConfig<Monsters, Integer> intModCol = new ColumnConfig<Monsters, Integer>(props.intMod(), 50,
 					"Int Modifier");
-			ColumnConfig<Monsters, String> wisScoreCol = new ColumnConfig<Monsters, String>(props.wisScore(), 50,
+			ColumnConfig<Monsters, Integer> wisScoreCol = new ColumnConfig<Monsters, Integer>(props.wisScore(), 50,
 					"Wisdom");
-			ColumnConfig<Monsters, String> wisModCol = new ColumnConfig<Monsters, String>(props.wisMod(), 50,
+			ColumnConfig<Monsters, Integer> wisModCol = new ColumnConfig<Monsters, Integer>(props.wisMod(), 50,
 					"Wis Modifier");
-			ColumnConfig<Monsters, String> chaScoreCol = new ColumnConfig<Monsters, String>(props.chaScore(), 50,
+			ColumnConfig<Monsters, Integer> chaScoreCol = new ColumnConfig<Monsters, Integer>(props.chaScore(), 50,
 					"Charisma");
-			ColumnConfig<Monsters, String> chaModCol = new ColumnConfig<Monsters, String>(props.chaMod(), 50,
+			ColumnConfig<Monsters, Integer> chaModCol = new ColumnConfig<Monsters, Integer>(props.chaMod(), 50,
 					"Cha Modifier");
 			ColumnConfig<Monsters, String> hpDiceCol = new ColumnConfig<Monsters, String>(props.hpDice(), 50,
 					"Hit Dice");
-			ColumnConfig<Monsters, String> hpCol = new ColumnConfig<Monsters, String>(props.hp(), 50, "Hit Points");
+			ColumnConfig<Monsters, Integer> hpCol = new ColumnConfig<Monsters, Integer>(props.hp(), 50, "Hit Points");
 
 			List<ColumnConfig<Monsters, ?>> columns = new ArrayList<ColumnConfig<Monsters, ?>>();
 			columns.add(name1Col);
@@ -135,7 +126,7 @@ public class Monster_Manual_GXT_Project implements IsWidget, EntryPoint {
 
 			// Stage manager, turn on state management
 			grid.setStateful(true);
-			grid.setStateId("gridExample");
+			grid.setStateId("monsterManualGXTProject");
 
 			// Stage manager, load previous state
 			GridStateHandler<Monsters> state = new GridStateHandler<Monsters>(grid);
@@ -183,18 +174,24 @@ public class Monster_Manual_GXT_Project implements IsWidget, EntryPoint {
 			con.add(grid, new VerticalLayoutData(1, 1));
 
 			panel = new ContentPanel();
-			panel.setHeading("Basic Grid");
+			panel.setHeading("List of Monsters in the D&D 5th edition Monster Manual");
+
 			panel.add(con);
+			
+
 		}
 		return panel;
 	}
 
 	@Override
-	public void onModuleLoad() {
-		// State manager, initialize the state options
-		StateManager.get().setProvider(new CookieProvider("/", null, null, GXT.isSecure()));
+  public void onModuleLoad() {
+    // State manager, initialize the state options
+    StateManager.get().setProvider(new CookieProvider("/", null, null, GXT.isSecure()));
 
-		new ExampleContainer(this).setMaxHeight(MAX_HEIGHT).setMaxWidth(MAX_WIDTH).setMinHeight(MIN_HEIGHT)
-				.setMinWidth(MIN_WIDTH).doStandalone();
-	}
+    Viewport vp = new Viewport();
+    vp.add(this);	
+    
+    RootPanel.get().add(vp);
+    
+  	}
 }

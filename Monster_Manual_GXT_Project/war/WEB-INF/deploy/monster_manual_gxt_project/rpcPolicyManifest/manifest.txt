@@ -1,0 +1,2 @@
+# Module monster_manual_gxt_project
+# RPC service class, partial path of RPC policy file
