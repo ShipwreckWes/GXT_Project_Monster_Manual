@@ -1,0 +1,202 @@
+package com.sencha.gxt.project.client;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import com.google.gwt.cell.client.AbstractCell;
+import com.google.gwt.cell.client.DateCell;
+import com.google.gwt.core.client.EntryPoint;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.logical.shared.SelectionEvent;
+import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.event.logical.shared.ValueChangeEvent;
+import com.google.gwt.event.logical.shared.ValueChangeHandler;
+import com.google.gwt.i18n.client.DateTimeFormat;
+import com.google.gwt.i18n.client.NumberFormat;
+import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.RootPanel;
+import com.google.gwt.user.client.ui.Widget;
+import com.sencha.gxt.cell.core.client.form.ComboBoxCell.TriggerAction;
+import com.sencha.gxt.core.client.GXT;
+import com.sencha.gxt.data.shared.ListStore;
+import com.sencha.gxt.data.shared.StringLabelProvider;
+import com.sencha.gxt.project.client.MonsterData;
+import com.sencha.gxt.project.client.Monsters;
+import com.sencha.gxt.project.client.MonsterProperties;
+import com.sencha.gxt.project.client.ExampleContainer;
+import com.sencha.gxt.state.client.CookieProvider;
+import com.sencha.gxt.state.client.GridStateHandler;
+import com.sencha.gxt.state.client.StateManager;
+import com.sencha.gxt.widget.core.client.ContentPanel;
+import com.sencha.gxt.widget.core.client.container.SimpleContainer;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer;
+import com.sencha.gxt.widget.core.client.container.VerticalLayoutContainer.VerticalLayoutData;
+import com.sencha.gxt.widget.core.client.container.Viewport;
+import com.sencha.gxt.widget.core.client.form.SimpleComboBox;
+import com.sencha.gxt.widget.core.client.grid.CellSelectionModel;
+import com.sencha.gxt.widget.core.client.grid.ColumnConfig;
+import com.sencha.gxt.widget.core.client.grid.ColumnModel;
+import com.sencha.gxt.widget.core.client.grid.Grid;
+import com.sencha.gxt.widget.core.client.grid.GridSelectionModel;
+import com.sencha.gxt.widget.core.client.selection.CellSelectionChangedEvent;
+import com.sencha.gxt.widget.core.client.selection.CellSelectionChangedEvent.CellSelectionChangedHandler;
+import com.sencha.gxt.widget.core.client.toolbar.LabelToolItem;
+import com.sencha.gxt.widget.core.client.toolbar.ToolBar;
+
+/**
+ * Entry point classes define <code>onModuleLoad()</code>.
+ */
+public class Monster_Manual_GXT_Project implements IsWidget, EntryPoint {
+
+	protected static final int MAX_HEIGHT = 1000;
+	protected static final int MAX_WIDTH = 1200;
+	protected static final int MIN_HEIGHT = 320;
+	protected static final int MIN_WIDTH = 480;
+
+	private static final MonsterProperties props = GWT.create(MonsterProperties.class);
+
+	private ContentPanel panel;
+
+	@Override
+	public Widget asWidget() {
+		if (panel == null) {
+			ColumnConfig<Monsters, String> name1Col = new ColumnConfig<Monsters, String>(props.name1(), 50, "Name");
+			ColumnConfig<Monsters, String> challengeRatingCol = new ColumnConfig<Monsters, String>(
+					props.challengeRating(), 50, "CR Rating");
+			ColumnConfig<Monsters, String> challengeXPCol = new ColumnConfig<Monsters, String>(props.challengeXP(), 50,
+					"Total XP");
+			ColumnConfig<Monsters, String> armorTypeCol = new ColumnConfig<Monsters, String>(props.acType(), 50,
+					"Armor Type");
+			ColumnConfig<Monsters, String> armorClassCol = new ColumnConfig<Monsters, String>(props.armorClass(), 50,
+					"Armor Class");
+			ColumnConfig<Monsters, String> strScoreCol = new ColumnConfig<Monsters, String>(props.strScore(), 50,
+					"Strength");
+			ColumnConfig<Monsters, String> strModCol = new ColumnConfig<Monsters, String>(props.strMod(), 50,
+					"Str Modifier");
+			ColumnConfig<Monsters, String> dexScoreCol = new ColumnConfig<Monsters, String>(props.dexScore(), 50,
+					"Dexterity");
+			ColumnConfig<Monsters, String> dexModCol = new ColumnConfig<Monsters, String>(props.dexMod(), 50,
+					"Dex Modifier");
+			ColumnConfig<Monsters, String> conScoreCol = new ColumnConfig<Monsters, String>(props.conScore(), 50,
+					"Constitution");
+			ColumnConfig<Monsters, String> conModCol = new ColumnConfig<Monsters, String>(props.conMod(), 50,
+					"Con Modifier");
+			ColumnConfig<Monsters, String> intScoreCol = new ColumnConfig<Monsters, String>(props.intScore(), 50,
+					"Intelligence");
+			ColumnConfig<Monsters, String> intModCol = new ColumnConfig<Monsters, String>(props.intMod(), 50,
+					"Int Modifier");
+			ColumnConfig<Monsters, String> wisScoreCol = new ColumnConfig<Monsters, String>(props.wisScore(), 50,
+					"Wisdom");
+			ColumnConfig<Monsters, String> wisModCol = new ColumnConfig<Monsters, String>(props.wisMod(), 50,
+					"Wis Modifier");
+			ColumnConfig<Monsters, String> chaScoreCol = new ColumnConfig<Monsters, String>(props.chaScore(), 50,
+					"Charisma");
+			ColumnConfig<Monsters, String> chaModCol = new ColumnConfig<Monsters, String>(props.chaMod(), 50,
+					"Cha Modifier");
+			ColumnConfig<Monsters, String> hpDiceCol = new ColumnConfig<Monsters, String>(props.hpDice(), 50,
+					"Hit Dice");
+			ColumnConfig<Monsters, String> hpCol = new ColumnConfig<Monsters, String>(props.hp(), 50, "Hit Points");
+
+			List<ColumnConfig<Monsters, ?>> columns = new ArrayList<ColumnConfig<Monsters, ?>>();
+			columns.add(name1Col);
+			columns.add(challengeRatingCol);
+			columns.add(challengeXPCol);
+			columns.add(armorTypeCol);
+			columns.add(armorClassCol);
+			columns.add(strScoreCol);
+			columns.add(strModCol);
+			columns.add(dexScoreCol);
+			columns.add(dexModCol);
+			columns.add(conScoreCol);
+			columns.add(conModCol);
+			columns.add(intScoreCol);
+			columns.add(intModCol);
+			columns.add(wisScoreCol);
+			columns.add(wisModCol);
+			columns.add(chaScoreCol);
+			columns.add(chaModCol);
+			columns.add(hpDiceCol);
+			columns.add(hpCol);
+
+			ColumnModel<Monsters> cm = new ColumnModel<Monsters>(columns);
+
+			ListStore<Monsters> store = new ListStore<Monsters>(props.key());
+			store.addAll(MonsterData.getMonsters());
+
+			final Grid<Monsters> grid = new Grid<Monsters>(store, cm);
+			grid.setAllowTextSelection(false);
+			grid.getView().setAutoExpandColumn(name1Col);
+			grid.getView().setStripeRows(true);
+			grid.getView().setColumnLines(true);
+			grid.setBorders(false);
+			grid.setColumnReordering(true);
+
+			// Stage manager, turn on state management
+			grid.setStateful(true);
+			grid.setStateId("gridExample");
+
+			// Stage manager, load previous state
+			GridStateHandler<Monsters> state = new GridStateHandler<Monsters>(grid);
+			state.loadState();
+
+			SimpleComboBox<String> typeCombo = new SimpleComboBox<String>(new StringLabelProvider<String>());
+			typeCombo.setTriggerAction(TriggerAction.ALL);
+			typeCombo.setEditable(false);
+			typeCombo.setWidth(100);
+			typeCombo.add("Row");
+			typeCombo.add("Cell");
+			typeCombo.setValue("Row");
+			// we want to change selection model on select, not value change which fires on
+			// blur
+			typeCombo.addSelectionHandler(new SelectionHandler<String>() {
+				@Override
+				public void onSelection(SelectionEvent<String> event) {
+					boolean cell = event.getSelectedItem().equals("Cell");
+					if (cell) {
+						CellSelectionModel<Monsters> c = new CellSelectionModel<Monsters>();
+						c.addCellSelectionChangedHandler(new CellSelectionChangedHandler<Monsters>() {
+							@Override
+							public void onCellSelectionChanged(CellSelectionChangedEvent<Monsters> event) {
+							}
+						});
+						grid.setSelectionModel(c);
+					} else {
+						grid.setSelectionModel(new GridSelectionModel<Monsters>());
+					}
+				}
+			});
+			typeCombo.addValueChangeHandler(new ValueChangeHandler<String>() {
+				@Override
+				public void onValueChange(ValueChangeEvent<String> event) {
+				}
+			});
+
+			ToolBar toolBar = new ToolBar();
+			toolBar.setEnableOverflow(false);
+			toolBar.add(new LabelToolItem("Selection Mode: "));
+			toolBar.add(typeCombo);
+
+			VerticalLayoutContainer con = new VerticalLayoutContainer();
+			con.add(toolBar, new VerticalLayoutData(1, -1));
+			con.add(grid, new VerticalLayoutData(1, 1));
+
+			panel = new ContentPanel();
+			panel.setHeading("Basic Grid");
+			panel.add(con);
+		}
+		return panel;
+	}
+
+	@Override
+	public void onModuleLoad() {
+		// State manager, initialize the state options
+		StateManager.get().setProvider(new CookieProvider("/", null, null, GXT.isSecure()));
+
+		Viewport vp = new Viewport();
+		vp.add(panel);
+		
+		RootPanel.get().add(vp);
+	}
+}

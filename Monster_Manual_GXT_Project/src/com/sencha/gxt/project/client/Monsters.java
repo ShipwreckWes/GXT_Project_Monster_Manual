@@ -7,35 +7,35 @@ public class Monsters implements Serializable {
 	// Create strings that match table headers in filepath
 	private Integer id;
 	private String name1;
-	private String challengeRating;
-	private String challengeXP;
+	private Integer challengeRating;
+	private Integer challengeXP;
 	private String acType;
-	private String armorClass;
-	private String strScore;
-	private String strMod;
-	private String dexScore;
-	private String dexMod;
-	private String conScore;
-	private String conMod;
-	private String intScore;
-	private String intMod;
-	private String wisScore;
-	private String wisMod;
-	private String chaScore;
-	private String chaMod;
+	private Integer armorClass;
+	private Integer strScore;
+	private Integer strMod;
+	private Integer dexScore;
+	private Integer dexMod;
+	private Integer conScore;
+	private Integer conMod;
+	private Integer intScore;
+	private Integer intMod;
+	private Integer wisScore;
+	private Integer wisMod;
+	private Integer chaScore;
+	private Integer chaMod;
 	private String hpDice;
-	private String hp;
+	private Integer hp;
 
 	private static int COUNTER = 0;
 
 	public Monsters() {
-		this.id = Integer.valueOf(COUNTER);
+		this.id = COUNTER++;
 	}
 
-	public Monsters(String name1, String challengeRating, String challengeXP, String acType, String armorClass,
-			String strScore, String strMod, String dexScore, String dexMod, String conScore, String conMod,
-			String intScore, String intMod, String wisScore, String wisMod, String chaScore, String chaMod,
-			String hpDice, String hp) {
+	public Monsters(String name1, Integer challengeRating, Integer challengeXP, String acType, Integer armorClass,
+			Integer strScore, Integer strMod, Integer dexScore, Integer dexMod, Integer conScore, Integer conMod,
+			Integer intScore, Integer intMod, Integer wisScore, Integer wisMod, Integer chaScore, Integer chaMod,
+			String hpDice, Integer hp) {
 		this();
 		this.name1 = name1;
 		this.challengeRating = challengeRating;
@@ -58,7 +58,7 @@ public class Monsters implements Serializable {
 		this.hp = hp;
 	}
 
-	public Integer getID() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -66,11 +66,11 @@ public class Monsters implements Serializable {
 		return name1;
 	}
 
-	public String getChallengeRating() {
+	public Integer getChallengeRating() {
 		return challengeRating;
 	}
 
-	public String getChallengeXP() {
+	public Integer getChallengeXP() {
 		return challengeXP;
 	}
 
@@ -78,55 +78,55 @@ public class Monsters implements Serializable {
 		return acType;
 	}
 
-	public String getArmorClass() {
+	public Integer getArmorClass() {
 		return armorClass;
 	}
 
-	public String getStrScore() {
+	public Integer getStrScore() {
 		return strScore;
 	}
 
-	public String getStrMod() {
+	public Integer getStrMod() {
 		return strMod;
 	}
 
-	public String getDexScore() {
+	public Integer getDexScore() {
 		return dexScore;
 	}
 
-	public String getDexMod() {
+	public Integer getDexMod() {
 		return dexMod;
 	}
 
-	public String getConScore() {
+	public Integer getConScore() {
 		return conScore;
 	}
 
-	public String getConMod() {
+	public Integer getConMod() {
 		return conMod;
 	}
 
-	public String getIntScore() {
+	public Integer getIntScore() {
 		return intScore;
 	}
 
-	public String getIntMod() {
+	public Integer getIntMod() {
 		return intMod;
 	}
 
-	public String getWisScore() {
+	public Integer getWisScore() {
 		return wisScore;
 	}
 
-	public String getWisMod() {
+	public Integer getWisMod() {
 		return wisMod;
 	}
 
-	public String getChaScore() {
+	public Integer getChaScore() {
 		return chaScore;
 	}
 
-	public String getChaMod() {
+	public Integer getChaMod() {
 		return chaMod;
 	}
 
@@ -134,7 +134,7 @@ public class Monsters implements Serializable {
 		return hpDice;
 	}
 
-	public String getHp() {
+	public Integer getHp() {
 		return hp;
 	}
 
@@ -146,11 +146,11 @@ public class Monsters implements Serializable {
 		this.name1 = name1;
 	}
 
-	public void setChallengeRating(String challengeRating) {
+	public void setChallengeRating(Integer challengeRating) {
 		this.challengeRating = challengeRating;
 	}
 
-	public void setChallengeXP(String challengeXP) {
+	public void setChallengeXP(Integer challengeXP) {
 		this.challengeXP = challengeXP;
 	}
 
@@ -158,55 +158,55 @@ public class Monsters implements Serializable {
 		this.acType = acType;
 	}
 
-	public void setArmorClass(String armorClass) {
+	public void setArmorClass(Integer armorClass) {
 		this.armorClass = armorClass;
 	}
 
-	public void setStrScore(String strScore) {
+	public void setStrScore(Integer strScore) {
 		this.strScore = strScore;
 	}
 
-	public void setStrMod(String strMod) {
+	public void setStrMod(Integer strMod) {
 		this.strMod = strMod;
 	}
 
-	public void setDexScore(String dexScore) {
+	public void setDexScore(Integer dexScore) {
 		this.dexScore = dexScore;
 	}
 
-	public void setDexMod(String dexMod) {
+	public void setDexMod(Integer dexMod) {
 		this.dexMod = dexMod;
 	}
 
-	public void setConScore(String conScore) {
+	public void setConScore(Integer conScore) {
 		this.conScore = conScore;
 	}
 
-	public void setConMod(String conMod) {
+	public void setConMod(Integer conMod) {
 		this.conMod = conMod;
 	}
 
-	public void setIntScore(String intScore) {
+	public void setIntScore(Integer intScore) {
 		this.intScore = intScore;
 	}
 
-	public void setIntMod(String intMod) {
+	public void setIntMod(Integer intMod) {
 		this.intMod = intMod;
 	}
 
-	public void setWisScore(String wisScore) {
+	public void setWisScore(Integer wisScore) {
 		this.wisScore = wisScore;
 	}
 
-	public void setWisMod(String wisMod) {
+	public void setWisMod(Integer wisMod) {
 		this.wisMod = wisMod;
 	}
 
-	public void setChaScore(String chaScore) {
+	public void setChaScore(Integer chaScore) {
 		this.chaScore = chaScore;
 	}
 
-	public void setChaMod(String chaMod) {
+	public void setChaMod(Integer chaMod) {
 		this.chaMod = chaMod;
 	}
 
@@ -214,7 +214,7 @@ public class Monsters implements Serializable {
 		this.hpDice = hpDice;
 	}
 
-	public void setHp(String hp) {
+	public void setHp(Integer hp) {
 		this.hp = hp;
 	}
 }

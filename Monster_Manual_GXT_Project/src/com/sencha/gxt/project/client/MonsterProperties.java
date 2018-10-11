@@ -16,40 +16,40 @@ public interface MonsterProperties extends PropertyAccess<Monsters> {
 
 	ValueProvider<Monsters, String> name1();
 
-	ValueProvider<Monsters, String> challengeRating();
+	ValueProvider<Monsters, Integer> challengeRating();
 
-	ValueProvider<Monsters, String> challengeXP();
+	ValueProvider<Monsters, Integer> challengeXP();
 
 	ValueProvider<Monsters, String> acType();
 
-	ValueProvider<Monsters, String> armorClass();
+	ValueProvider<Monsters, Integer> armorClass();
 
-	ValueProvider<Monsters, String> strScore();
+	ValueProvider<Monsters, Integer> strScore();
 
-	ValueProvider<Monsters, String> strMod();
+	ValueProvider<Monsters, Integer> strMod();
 
-	ValueProvider<Monsters, String> dexScore();
+	ValueProvider<Monsters, Integer> dexScore();
 
-	ValueProvider<Monsters, String> dexMod();
+	ValueProvider<Monsters, Integer> dexMod();
 
-	ValueProvider<Monsters, String> conScore();
+	ValueProvider<Monsters, Integer> conScore();
 
-	ValueProvider<Monsters, String> conMod();
+	ValueProvider<Monsters, Integer> conMod();
 
-	ValueProvider<Monsters, String> intScore();
+	ValueProvider<Monsters, Integer> intScore();
 
-	ValueProvider<Monsters, String> intMod();
+	ValueProvider<Monsters, Integer> intMod();
 
-	ValueProvider<Monsters, String> wisScore();
+	ValueProvider<Monsters, Integer> wisScore();
 
-	ValueProvider<Monsters, String> wisMod();
+	ValueProvider<Monsters, Integer> wisMod();
 
-	ValueProvider<Monsters, String> chaScore();
+	ValueProvider<Monsters, Integer> chaScore();
 
-	ValueProvider<Monsters, String> chaMod();
+	ValueProvider<Monsters, Integer> chaMod();
 
 	ValueProvider<Monsters, String> hpDice();
 
-	ValueProvider<Monsters, String> hp();
+	ValueProvider<Monsters, Integer> hp();
 
 }
